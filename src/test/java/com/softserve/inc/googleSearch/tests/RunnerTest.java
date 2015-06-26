@@ -26,6 +26,7 @@ public class RunnerTest {
 		googleSearchPage.addFixedNumberResultsToMap(RESULT_COUNT);
 		googleSearchPage.printResult();
 		Assert.assertEquals(googleSearchPage.countResult(SEARCH_QUERY), RESULT_WORD);
+		// TODO: WHHAAAAT?
 		assert(true);
 		
 	}
