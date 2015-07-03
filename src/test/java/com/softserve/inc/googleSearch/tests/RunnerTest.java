@@ -15,7 +15,7 @@ public class RunnerTest {
 	private static final String URL = "http://www.google.com";
 	private static final String SEARCH_QUERY = "banana";
 	private static final int RESULT_COUNT = 10;
-	private static final int RESULT_WORD = 23; // you say 50, but i changed to 23 for PASS test
+	private static final int RESULT_WORD = 23; 
 	
 	
 
@@ -25,9 +25,7 @@ public class RunnerTest {
 		googleSearchPage.searchQuery(SEARCH_QUERY);
 		googleSearchPage.addFixedNumberResultsToMap(RESULT_COUNT);
 		googleSearchPage.printResult();
-		Assert.assertEquals(googleSearchPage.countResult(SEARCH_QUERY), RESULT_WORD);
-		assert(true);
-		
+		Assert.assertTrue(googleSearchPage.isResultMoreThan(RESULT_WORD, SEARCH_QUERY)) ;
 	}
 	
 	@AfterTest

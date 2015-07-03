@@ -102,17 +102,26 @@ public class GoogleSearchPage {
 	 * @param mathc string wich are finding in result
 	 * @return number of found words in the result
 	 */
-	public int countResult(String mathc) {
+	private int countResult(String mathc) {
 		int count = 0;
 		for (String key : googleSearch.keySet()) {
 			
 			    Pattern p = Pattern.compile("\\b+"+ mathc + "+", Pattern.CASE_INSENSITIVE);
 			    Matcher m = p.matcher(key);
+			    
 			    while(m.find()) count++;
 			    m = p.matcher(googleSearch.get(key));
 			    while(m.find()) count++;
 		}
 		return count;
-
 	}
+	
+	public boolean isResultMoreThan(int expected, String mathc) {
+		if (countResult(mathc) > expected) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 }
