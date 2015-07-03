@@ -3,7 +3,6 @@ package com.softserve.inc.googleSearch.tests;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.softserve.inc.googleSearch.pages.GoogleSearchPage;
@@ -15,7 +14,7 @@ public class RunnerTest {
 	private static final String URL = "http://www.google.com";
 	private static final String SEARCH_QUERY = "banana";
 	private static final int RESULT_COUNT = 10;
-	private static final int RESULT_WORD = 23; 
+	private static final int RESULT_WORD = 20; 
 	
 	
 
@@ -25,7 +24,9 @@ public class RunnerTest {
 		googleSearchPage.searchQuery(SEARCH_QUERY);
 		googleSearchPage.addFixedNumberResultsToMap(RESULT_COUNT);
 		googleSearchPage.printResult();
+
 		Assert.assertTrue(googleSearchPage.isResultMoreThan(RESULT_WORD, SEARCH_QUERY)) ;
+		
 	}
 	
 	@AfterTest

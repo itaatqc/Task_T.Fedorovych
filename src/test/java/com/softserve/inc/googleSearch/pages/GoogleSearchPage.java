@@ -80,13 +80,6 @@ public class GoogleSearchPage {
 			if (googleSearch.size() < count) {
 				clickNextPage();
 			}
-			//change this SLEEP for more results from google
-//			try {
-//				Thread.sleep(500);
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
 		}
 	}
 
