@@ -93,21 +93,21 @@ public class GoogleSearchPage {
 
 	/**
 	 * 
-	 * @param mathc string witch are finding in result
+	 * @param word string witch are finding in result
 	 * @return number of found words in the result
 	 */
-	private int countResult(String mathc) {
+	private int countResult(String word) {
 		int count = 0;
 		for (String key : googleSearch.keySet()) {
 			
-			    Pattern p = Pattern.compile("\\b+"+ mathc + "+", Pattern.CASE_INSENSITIVE);
+			    Pattern p = Pattern.compile("\\b+"+ word + "+", Pattern.CASE_INSENSITIVE);
 			    Matcher m = p.matcher(key);
 			    
 			    while(m.find()) count++;
 			    m = p.matcher(googleSearch.get(key));
 			    while(m.find()) count++;
 		}
-		logger.info("Number of "+ mathc + " = " + count);
+		logger.info("Number of "+ word + " words = " + count);
 		return count;
 	}
 	
