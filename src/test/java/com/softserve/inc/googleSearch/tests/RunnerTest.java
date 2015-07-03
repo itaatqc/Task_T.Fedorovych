@@ -20,6 +20,7 @@ public class RunnerTest {
 
 	@Test
 	public void testBananaCount(){
+		//test jenkins
 		GoogleSearchPage googleSearchPage = GoogleSearchPage.load(BrowserRepository.getFirefoxByTemporaryProfile(), URL);
 		
 		googleSearchPage.searchText(SEARCH_QUERY);
