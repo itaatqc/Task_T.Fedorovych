@@ -21,9 +21,9 @@ public class RunnerTest {
 	@Test
 	public void testBananaCount(){
 		GoogleSearchPage googleSearchPage = GoogleSearchPage.load(BrowserRepository.getFirefoxByTemporaryProfile(), URL);
-		googleSearchPage.searchQuery(SEARCH_QUERY);
-		googleSearchPage.addFixedNumberResultsToMap(RESULT_COUNT);
-		googleSearchPage.printResult();
+		
+		googleSearchPage.searchText(SEARCH_QUERY);
+		googleSearchPage.addResultsToMap(RESULT_COUNT);
 
 		Assert.assertTrue(googleSearchPage.isResultMoreThan(RESULT_WORD, SEARCH_QUERY)) ;
 		

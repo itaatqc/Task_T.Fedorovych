@@ -24,6 +24,7 @@ public class GoogleSearchPage {
 	private WebElement nextLink;
 	private WebElement allRes;
 
+	
 	public GoogleSearchPage() {
 		logger.info("GoogleSearchPage constructor");
 		this.searchField = ContextVisible.get().getPresentWebElement(
@@ -36,7 +37,7 @@ public class GoogleSearchPage {
 		return new GoogleSearchPage();
 	}
 
-	public void searchQuery(String query) {
+	public void searchText(String query) {
 		searchField.sendKeys(query);
 		searchField.sendKeys(Keys.RETURN);
 	}
@@ -46,7 +47,7 @@ public class GoogleSearchPage {
 	 * @param count
 	 *            describe how mush resuls shoud be added to MAP
 	 */
-	private void getTitleAndDescriptionFromResult(int count) {
+	private void getTitleAndDescriptionFromPage(int count) {
 
 		String title = null;
 		String description = null;
@@ -74,9 +75,9 @@ public class GoogleSearchPage {
 		ContextVisible.get().getPresentWebElement(By.id("pnnext")).click();
 	}
 
-	public void addFixedNumberResultsToMap(int count) {
+	public void addResultsToMap(int count) {
 		while (googleSearch.size() < count) {
-			getTitleAndDescriptionFromResult(count);
+			getTitleAndDescriptionFromPage(count);
 			if (googleSearch.size() < count) {
 				clickNextPage();
 			}
@@ -92,7 +93,7 @@ public class GoogleSearchPage {
 
 	/**
 	 * 
-	 * @param mathc string wich are finding in result
+	 * @param mathc string witch are finding in result
 	 * @return number of found words in the result
 	 */
 	private int countResult(String mathc) {
@@ -106,6 +107,7 @@ public class GoogleSearchPage {
 			    m = p.matcher(googleSearch.get(key));
 			    while(m.find()) count++;
 		}
+		logger.info("Number of "+ mathc + " = " + count);
 		return count;
 	}
 	
